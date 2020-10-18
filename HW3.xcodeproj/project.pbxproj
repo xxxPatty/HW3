@@ -17,6 +17,9 @@
 		7BE5BBCC253B483E00F8BB3C /* AppIcon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBCA253B483E00F8BB3C /* AppIcon3@2x.png */; };
 		7BE5BBCD253B483E00F8BB3C /* AppIcon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBCB253B483E00F8BB3C /* AppIcon3@3x.png */; };
 		7BE5BBD1253BE93700F8BB3C /* twicon.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBD0253BE93700F8BB3C /* twicon.otf */; };
+		7BFC56B8253C9BCC008F7D76 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC56B5253C9BCC008F7D76 /* UIColorExtension.swift */; };
+		7BFC56B9253C9BCC008F7D76 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC56B6253C9BCC008F7D76 /* ColorExtension.swift */; };
+		7BFC56BA253C9BCC008F7D76 /* LinearGradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFC56B7253C9BCC008F7D76 /* LinearGradientExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		7BE5BBCA253B483E00F8BB3C /* AppIcon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon3@2x.png"; sourceTree = "<group>"; };
 		7BE5BBCB253B483E00F8BB3C /* AppIcon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon3@3x.png"; sourceTree = "<group>"; };
 		7BE5BBD0253BE93700F8BB3C /* twicon.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = twicon.otf; sourceTree = "<group>"; };
+		7BFC56B5253C9BCC008F7D76 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		7BFC56B6253C9BCC008F7D76 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		7BFC56B7253C9BCC008F7D76 /* LinearGradientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 				7BE5BBD0253BE93700F8BB3C /* twicon.otf */,
 				7BE5BBCA253B483E00F8BB3C /* AppIcon3@2x.png */,
 				7BE5BBCB253B483E00F8BB3C /* AppIcon3@3x.png */,
+				7BFC56B4253C9BCC008F7D76 /* Extensions */,
 				7BE5BBC5253B47C100F8BB3C /* AppIcon2@2x.png */,
 				7BE5BBC6253B47C100F8BB3C /* AppIcon2@3x.png */,
 				7BE5BBB1253B35CF00F8BB3C /* Bboy Music Mixtape 2019_02_14 (128 kbps).mp3 */,
@@ -85,6 +92,16 @@
 				7BE5BBB7253B458600F8BB3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7BFC56B4253C9BCC008F7D76 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7BFC56B5253C9BCC008F7D76 /* UIColorExtension.swift */,
+				7BFC56B6253C9BCC008F7D76 /* ColorExtension.swift */,
+				7BFC56B7253C9BCC008F7D76 /* LinearGradientExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +181,9 @@
 			files = (
 				7B0E884725339B1F00B8F469 /* ContentView.swift in Sources */,
 				7B0E884525339B1F00B8F469 /* HW3App.swift in Sources */,
+				7BFC56B8253C9BCC008F7D76 /* UIColorExtension.swift in Sources */,
+				7BFC56BA253C9BCC008F7D76 /* LinearGradientExtension.swift in Sources */,
+				7BFC56B9253C9BCC008F7D76 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

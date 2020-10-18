@@ -10,7 +10,13 @@
 		7B0E884525339B1F00B8F469 /* HW3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E884425339B1F00B8F469 /* HW3App.swift */; };
 		7B0E884725339B1F00B8F469 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E884625339B1F00B8F469 /* ContentView.swift */; };
 		7B0E884925339B2000B8F469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0E884825339B2000B8F469 /* Assets.xcassets */; };
-		7B0E884C25339B2000B8F469 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0E884B25339B2000B8F469 /* Preview Assets.xcassets */; };
+		7BE5BBB2253B35CF00F8BB3C /* Bboy Music Mixtape 2019_02_14 (128 kbps).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBB1253B35CF00F8BB3C /* Bboy Music Mixtape 2019_02_14 (128 kbps).mp3 */; };
+		7BE5BBB8253B458600F8BB3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBB7253B458600F8BB3C /* Preview Assets.xcassets */; };
+		7BE5BBC7253B47C100F8BB3C /* AppIcon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBC5253B47C100F8BB3C /* AppIcon2@2x.png */; };
+		7BE5BBC8253B47C100F8BB3C /* AppIcon2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBC6253B47C100F8BB3C /* AppIcon2@3x.png */; };
+		7BE5BBCC253B483E00F8BB3C /* AppIcon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBCA253B483E00F8BB3C /* AppIcon3@2x.png */; };
+		7BE5BBCD253B483E00F8BB3C /* AppIcon3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBCB253B483E00F8BB3C /* AppIcon3@3x.png */; };
+		7BE5BBD1253BE93700F8BB3C /* twicon.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7BE5BBD0253BE93700F8BB3C /* twicon.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,8 +24,14 @@
 		7B0E884425339B1F00B8F469 /* HW3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW3App.swift; sourceTree = "<group>"; };
 		7B0E884625339B1F00B8F469 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B0E884825339B2000B8F469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7B0E884B25339B2000B8F469 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B0E884D25339B2000B8F469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BE5BBB1253B35CF00F8BB3C /* Bboy Music Mixtape 2019_02_14 (128 kbps).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bboy Music Mixtape 2019_02_14 (128 kbps).mp3"; sourceTree = "<group>"; };
+		7BE5BBB7253B458600F8BB3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7BE5BBC5253B47C100F8BB3C /* AppIcon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon2@2x.png"; sourceTree = "<group>"; };
+		7BE5BBC6253B47C100F8BB3C /* AppIcon2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon2@3x.png"; sourceTree = "<group>"; };
+		7BE5BBCA253B483E00F8BB3C /* AppIcon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon3@2x.png"; sourceTree = "<group>"; };
+		7BE5BBCB253B483E00F8BB3C /* AppIcon3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon3@3x.png"; sourceTree = "<group>"; };
+		7BE5BBD0253BE93700F8BB3C /* twicon.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = twicon.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +50,7 @@
 			children = (
 				7B0E884325339B1F00B8F469 /* HW3 */,
 				7B0E884225339B1F00B8F469 /* Products */,
+				7BE5BBB6253B458600F8BB3C /* Preview Content */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,19 +65,24 @@
 		7B0E884325339B1F00B8F469 /* HW3 */ = {
 			isa = PBXGroup;
 			children = (
+				7BE5BBD0253BE93700F8BB3C /* twicon.otf */,
+				7BE5BBCA253B483E00F8BB3C /* AppIcon3@2x.png */,
+				7BE5BBCB253B483E00F8BB3C /* AppIcon3@3x.png */,
+				7BE5BBC5253B47C100F8BB3C /* AppIcon2@2x.png */,
+				7BE5BBC6253B47C100F8BB3C /* AppIcon2@3x.png */,
+				7BE5BBB1253B35CF00F8BB3C /* Bboy Music Mixtape 2019_02_14 (128 kbps).mp3 */,
 				7B0E884425339B1F00B8F469 /* HW3App.swift */,
 				7B0E884625339B1F00B8F469 /* ContentView.swift */,
 				7B0E884825339B2000B8F469 /* Assets.xcassets */,
 				7B0E884D25339B2000B8F469 /* Info.plist */,
-				7B0E884A25339B2000B8F469 /* Preview Content */,
 			);
 			path = HW3;
 			sourceTree = "<group>";
 		};
-		7B0E884A25339B2000B8F469 /* Preview Content */ = {
+		7BE5BBB6253B458600F8BB3C /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				7B0E884B25339B2000B8F469 /* Preview Assets.xcassets */,
+				7BE5BBB7253B458600F8BB3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -126,8 +144,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0E884C25339B2000B8F469 /* Preview Assets.xcassets in Resources */,
+				7BE5BBC7253B47C100F8BB3C /* AppIcon2@2x.png in Resources */,
+				7BE5BBCD253B483E00F8BB3C /* AppIcon3@3x.png in Resources */,
+				7BE5BBCC253B483E00F8BB3C /* AppIcon3@2x.png in Resources */,
+				7BE5BBB2253B35CF00F8BB3C /* Bboy Music Mixtape 2019_02_14 (128 kbps).mp3 in Resources */,
+				7BE5BBB8253B458600F8BB3C /* Preview Assets.xcassets in Resources */,
+				7BE5BBD1253BE93700F8BB3C /* twicon.otf in Resources */,
 				7B0E884925339B2000B8F469 /* Assets.xcassets in Resources */,
+				7BE5BBC8253B47C100F8BB3C /* AppIcon2@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +292,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"HW3/Preview Content\"";
+				DEVELOPMENT_TEAM = C5K8JX8L72;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HW3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -289,7 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"HW3/Preview Content\"";
+				DEVELOPMENT_TEAM = C5K8JX8L72;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HW3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

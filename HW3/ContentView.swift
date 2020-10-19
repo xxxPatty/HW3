@@ -13,7 +13,6 @@ struct TitleView:ViewModifier{
         content
             .font(.system(.largeTitle, design: .rounded))
             .foregroundColor(Color("myFontColor"))
-            .background(Color(red: 1, green: 1, blue: 1, opacity: 0.3))
             .padding(.bottom, 10)
             .shadow(color: .white, radius: 2, x: -3, y: -3)
             .shadow(color: .lairShadowGray, radius: 2, x: 3, y: 3)
@@ -52,7 +51,7 @@ struct breakingElementRow: View{
 
 struct breakingElementList: View{
     
-    let breakingElement:[String]=["TopRock", "FootWalk", "Power-move", "Freeze", "Flip"]
+    //let breakingElement:[String]=["TopRock", "FootWalk", "Power-move", "Freeze", "Flip"]
     
     let TopRockEle=[breakingElementDetail(name:"2 steps", description:"The 2 step sets the foundation for all of the basic fundamental Toprock movements."), breakingElementDetail(name:"Indian step", description: "One of the essential top rock steps which is called the Indian Step. Indian Step is a step that is also found in Salsa Dancing as well."), breakingElementDetail(name:"Shuffle", description:"【鬼步舞的起源】：\n「鬼步舞」英文稱之為“Melbourne Shuffle”中文轉譯為“墨爾本曳步舞”，原因在於這舞步是由墨爾本地下舞廳流行開來的。剛開始於1992年，在海外各地區這舞蹈名字並不統一，一直到傳到澳洲才開始將此舞蹈稱之為 “Shuffle”。舞名就被確定下來了。 2002年12月，澳大利亞一家報紙的頭版講解了Melbourne Shuffle，這是Shuffle 首次出現在主流媒體。"), breakingElementDetail(name:"Kicks", description: "Both the “Kick” and the “Skip” add variation to the basic “2 Step” and set the foundation for learning future Toprock steps")]
     
@@ -133,47 +132,78 @@ struct breakingElementDetailView: View{ //picture取為ex:TopRock1, TopRock2...
 }
 
 struct ContentView: View {
-    @State private var moveDistance:CGFloat=0
-    @State private var show=false
+    @State private var show2=false
     @State private var rotateDegree:Double=0
+    @State private var play:String="play.circle.fill"
     @State private var music=true
+    
     init() {
             UITextView.appearance().backgroundColor = .clear
         }
     let player=AVPlayer()
+    
     var body: some View {
         TabView{
             TabView{    //嘻哈
                 ZStack{
                     Image("bboyBackground")
                         .resizable()
-                        .onAppear{
-                            let fileUrl=Bundle.main.url(forResource:"Bboy Music Mixtape 2019_02_14 (128 kbps)", withExtension:"mp3")!
-                            let playerItem=AVPlayerItem(url:fileUrl)
-                            player.replaceCurrentItem(with:playerItem)
-                        }
+                        .opacity(0.8)
                     Button(action:{
                         if music{
                             music=false
+                            play="pause.fill"
                             player.play()
                         }
                         else{
                             music=true
+                            play="play.circle.fill"
                             player.pause()
                         }
                     }){
-                        ImageView(str:"music", size:150)
+                        Image(systemName:play)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:50, height:50)
+                            .colorMultiply(.black)
                     }
                     .position(x:UIScreen.main.bounds.width-50, y:50)
+                
+//                    Button(action:{
+//                        rotateDegree=360
+//                    }){
+//                        Image("animation3")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(height:50)
+//                            .rotationEffect(.degrees(rotateDegree))
+//                            .animation(
+//                                Animation.linear(duration:5)
+//                                    .repeatForever(autoreverses: false)
+//                            )
+//                    }
+                    
                     VStack{
-                        Text("Choose your App icon")
-                            .modifier(TitleView())
+                        VStack{
+                            if show2{
+                                Text("Choose your App icon")
+                                    .modifier(TitleView())
+                                    .transition(.scale(scale:2))
+                            }
+                        }
+                            .animation(
+                                Animation.easeInOut(duration:3)
+                            )
+                            .onAppear{
+                                show2=true
+                            }
                         HStack{
                             Button(action:{
                                     UIApplication.shared.setAlternateIconName(nil)}){
                                 Image("AppIcon1")
                                     .resizable()
                                     .scaledToFit()
+                                    .shadow(color: .black, radius: 10, x: 3, y: 3)
                             }
 
                             Button(action:{
@@ -181,6 +211,7 @@ struct ContentView: View {
                                 Image("AppIcon2")
                                     .resizable()
                                     .scaledToFit()
+                                    .shadow(color: .black, radius: 10, x: 3, y: 3)
                             }
 
                             Button(action:{
@@ -188,73 +219,68 @@ struct ContentView: View {
                                 Image("AppIcon3")
                                     .resizable()
                                     .scaledToFit()
+                                    .shadow(color: .black, radius: 10, x: 3, y: 3)
                             }
                         }
                         .frame(height: 200)
                     }
-                    VStack{
-                        Button("動動"){
-                            if moveDistance>UIScreen.main.bounds.width-100{
-                                moveDistance=0
-                            }
-                            else{
-                                moveDistance+=50
-                            }
-                        }
-                        GeometryReader{ geometry in
-                            Image("animation1")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:50)
-                                .offset(x:moveDistance)
-                                .animation(
-                                    Animation.spring()
-                                        .repeatCount(1, autoreverses: false)
-                                )
-                        }
-                    }
-                    VStack{
-                        if show{
-                            Image("animation2")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height:50)
-                                .transition(.opacity)
-                        }
-                    }
-                        .animation(
-                            Animation.easeInOut(duration:5)
-                                .repeatCount(3, autoreverses: false)
-                        )
-                        .onAppear{
-                            show=true
-                        }
-                        .position(x:UIScreen.main.bounds.width-50, y:200)
                 }
                 
                 ZStack{     //breaking
                     Image("bboyBackground")
                         .resizable()
+                        .opacity(0.8)
+                    Button(action:{
+                        if music{
+                            music=false
+                            play="pause.fill"
+                            player.play()
+                        }
+                        else{
+                            music=true
+                            play="play.circle.fill"
+                            player.pause()
+                        }
+                    }){
+                        Image(systemName:play)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:50, height:50)
+                            .colorMultiply(.black)
+                    }
+                    .position(x:UIScreen.main.bounds.width-50, y:50)
                     VStack{
                         Text("霹靂舞")
                             .modifier(TitleView())
+
                         Context(context:"地板舞（Breaking）又稱為霹靂舞，是嘻哈文化的一員。如同其他的嘻哈文化，地板舞也大量借用其他文化的成份，包括競技體操、街舞、非洲裔巴西文化、迪斯可、中國武術、俄羅斯土風舞，以及詹姆士·布朗、麥可·傑克森的舞步與加州的放克風格。\n\n比較值得注意的是，早期跳地板舞的舞者多為拉丁裔美國人，而不是非洲裔美國人，然而他們當初偏好的音樂風格卻大大影響至今嘻哈音樂。地板舞的表現形式有很多，有頭轉、側頭刷、風車、單手跳、手轉等等，而且姿態優美，節奏感強烈，速度快，在青少年中很受歡迎。")
+                            .background(Color(red: 1, green: 1, blue: 1, opacity: 0.3))
                     }
+                }
+                ZStack{
+                    Image("bboyBackground")
+                        .resizable()
+                        .opacity(0.8)
+                    let breakingElements:[String]=["TopRock", "FootWalk", "Power-move", "Freeze", "Flip"]
                     VStack{
-                        Button("轉轉"){
-                            rotateDegree=360
+                        Text("breaking五大元素")
+                            .modifier(TitleView())
+                        ScrollView{
+                            ForEach(breakingElements, id:\.self){(message) in
+                                HStack{
+                                    Image(systemName:"star")
+                                    Text(message)
+                                        .background(Color(red: 1, green: 1, blue: 1, opacity: 0.3))
+                                        .foregroundColor(Color("myFontColor"))
+                                        .shadow(color: .white, radius: 2, x: -3, y: -3)
+                                        .shadow(color: .lairShadowGray, radius: 2, x: 3, y: 3)
+                                    Spacer()
+                                }
+                                .padding([.leading, .trailing], 10)
+                                Divider()
+                            }
                         }
-                        Image("animation3")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height:50)
-                            .rotationEffect(.degrees(rotateDegree))
-                            .animation(
-                                Animation.linear(duration:5)
-                                    .repeatForever(autoreverses: false)
-                            )
                     }
-                    .position(x:UIScreen.main.bounds.width-100, y:50)
                 }
                 
             }.tabViewStyle(PageTabViewStyle())
@@ -276,7 +302,7 @@ struct ContentView: View {
                     .modifier(TitleView())
                 ScrollView(.vertical){
                     let dancers:[String]=["RM", "Crazy Legs", "Ken Swift", "RoxRite", "Wayne Frost", "Michael Chambers", "Shabba Doo", "Taisuke", "Lucinda Dickey", "Salah", "Robert Muraine", "Tommy the Clown", "Jay Park", "Froz", "Junior", "Raphael Xavier"]
-                    let columns=[GridItem(), GridItem(), GridItem(), GridItem()]
+                    let columns=[GridItem(), GridItem(), GridItem()]
                     LazyVGrid(columns: columns){
                         ForEach(dancers.indices){(index) in
 
@@ -285,14 +311,17 @@ struct ContentView: View {
                                     .overlay(
                                         Image("Dancer\(index)")
                                             .resizable()
-                                            .scaledToFit()
+                                            .scaledToFill()
                                     )
                                     .frame(height:150)
                                     .clipShape(Circle())
+                                    .shadow(color: .black, radius: 10, x: 3, y: 3)
                                 Spacer()
                                 Text(dancers[index])
                                     .foregroundColor(Color("myFontColor"))
                                     .fixedSize(horizontal: false, vertical: true)
+                                    .shadow(color: .white, radius: 2, x: -3, y: -3)
+                                    .shadow(color: .lairShadowGray, radius: 2, x: 3, y: 3)
                             }
                             .background(Color(red:1, green:1, blue:1, opacity: 0))
                             .frame(height:200)
@@ -300,7 +329,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .background(LinearGradient(gradient:Gradient(colors:[Color.black, Color.white]), startPoint: .top, endPoint: .bottom))
+            .background(LinearGradient(gradient:Gradient(colors:[Color.gray, Color.white]), startPoint: .top, endPoint: .bottom))
                 .tabItem{
                     Image(systemName:"person")
                     Text("Dancer")
@@ -308,6 +337,7 @@ struct ContentView: View {
             VStack{
                 let titles:[String]=["Hertz vs RM | Top16 | Taipei Bboy City\n 2020 Fight Covid19 Livestream","Massive Monkees vs Jinjo Crew | \nR16 BBOY Battle 2012 | YAK FILMS", "Amazing Moments at \nBATTLE OF THE YEAR 2019 // .stance","Exhibition Battle: Red Bull Dancers vs \nTeam France | Red Bull Dance Tour France 2020",  "FLOORRIORZ vs RED BULL\n BC ONE ALL STAR | Round 3 of Battle\n @ 2020 BBIC WORLD FINAL Day-2 | LB-PIX"]
                 let links:[String]=["https://www.youtube.com/watch?v=cwLmIsgAiGU","https://www.youtube.com/watch?v=-kT0HJhm5ck",  "https://www.youtube.com/watch?v=1c8eKUlFbhk","https://www.youtube.com/watch?v=DqZNxPktbSE",  "https://www.youtube.com/watch?v=kBDhIkUNYZ8"]
+                Spacer()
                 ScrollView(.horizontal){
                     let rows=[GridItem()]
                     LazyHGrid(rows:rows){
@@ -315,9 +345,12 @@ struct ContentView: View {
                             VStack{
                                 Link(destination:URL(string:links[index])!, label:{
                                     VStack{
+                                        ImageView(str:"battle\(index)", size:UIScreen.main.bounds.width-10)
+                                            .shadow(color: .black, radius: 10, x: 3, y: 3)
                                         Text(titles[index])
-                                
-                                        ImageView(str:"battle\(index)", size:300)
+                                            .foregroundColor(Color("myFontColor"))
+                                            .shadow(color: .white, radius: 2, x: -3, y: -3)
+                                            .shadow(color: .lairShadowGray, radius: 2, x: 3, y: 3)
                                     }
                                 })
                                 .buttonStyle(PlainButtonStyle())
@@ -325,33 +358,8 @@ struct ContentView: View {
                         }
                     }
                 }
-            }
-            .background(LinearGradient(gradient:Gradient(colors:[Color.black, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                .tabItem{
-                    Image(systemName:"video")
-                    Text("Video")
-                }
-            .onAppear{
-                let utterance=AVSpeechUtterance(string:"Click and watch the video")
-                utterance.pitchMultiplier = 1
-                utterance.rate = 0.3
-                let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterance)
-            }
-            VStack{
-                
-                let links:[String]=["https://www.darrenrwong.com/toprocks/2step/", "https://www.pinterest.com/pin/51721095697254702/", "https://www.wikihow.com/Do-Some-Break-Dance-Moves", "https://home.gamer.com.tw/creationDetail.php?sn=1739953", "https://www.darrenrwong.com/toprocks/kick-and-skip/", "https://www.wikihow.com/Do-the-6-Step-(Breakdancing)", "https://www.youtube.com/watch?v=JBMg_yqWFPc", "https://en.wikipedia.org/wiki/Windmill_(b-boy_move)", "https://en.wikipedia.org/wiki/Flare_(acrobatic_move)", "http://fuske4bboyz.blogspot.com/2008/05/how-to-do-swipes.html", "https://en.wikipedia.org/wiki/Headspin", "https://bluesky-ky.com/breaking-style-introduce/", "https://www.wikihow.com/Do-a-Backflip", "https://www.wikihow.com/Do-a-Sideflip"]
-                ScrollView{
-                    ForEach(links, id:\.self){(message) in
-                        HStack{
-                            Link(message, destination:URL(string:message)!)
-                                .padding(.bottom, 10)
-                            Spacer()
-                        }
-                        .padding([.leading, .trailing], 10)
-                        Divider()
-                    }
-                }
+                .fixedSize(horizontal: false, vertical: true)
+                Spacer()
                 ScrollView(.horizontal){
                     HStack{
                         Group{
@@ -410,11 +418,23 @@ struct ContentView: View {
                     }
                 }
             }
-            .background(RadialGradient(gradient:Gradient(colors:[Color.white, Color.black]), center:.center, startRadius: 100, endRadius: 400))
+            .background(LinearGradient(gradient:Gradient(colors:[Color.gray, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .tabItem{
-                    Image(systemName:"link")
-                    Text(" Ref. Link")
+                    Image(systemName:"video")
+                    Text("Video")
                 }
+            .onAppear{
+                let utterance=AVSpeechUtterance(string:"Click and watch the video")
+                utterance.pitchMultiplier = 1
+                utterance.rate = 0.3
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            }
+        }
+        .onAppear{
+            let fileUrl=Bundle.main.url(forResource:"Bboy Music Mixtape 2019_02_14 (128 kbps)", withExtension:"mp3")!
+            let playerItem=AVPlayerItem(url:fileUrl)
+            player.replaceCurrentItem(with:playerItem)
         }
     }
 }
@@ -430,9 +450,9 @@ struct Context: View {
     let context:String
     var body: some View {
         TextEditor(text:.constant(context))
-            .background(Color(red: 1, green: 1, blue: 1, opacity: 0.3))
             .foregroundColor(Color("myFontColor"))
             .frame(height:300)
+            .background(Color(red:1, green:1, blue:1, opacity:0.2))
             .accentColor(.clear)
             .shadow(color: .white, radius: 2, x: -3, y: -3)
             .shadow(color: .lairShadowGray, radius: 2, x: 3, y: 3)

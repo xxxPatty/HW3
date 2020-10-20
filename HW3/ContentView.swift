@@ -149,40 +149,31 @@ struct ContentView: View {
                     Image("bboyBackground")
                         .resizable()
                         .opacity(0.8)
-                    Button(action:{
-                        if music{
-                            music=false
-                            play="pause.fill"
-                            player.play()
+                    HStack{
+                        Text("Bboy music")
+                            .padding(.leading, 10)
+                        Spacer()
+                        Button(action:{
+                            if music{
+                                music=false
+                                play="pause.fill"
+                                player.play()
+                            }
+                            else{
+                                music=true
+                                play="play.circle.fill"
+                                player.pause()
+                            }
+                        }){
+                            Image(systemName:play)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:50, height:50)
+                                .colorMultiply(.black)
                         }
-                        else{
-                            music=true
-                            play="play.circle.fill"
-                            player.pause()
-                        }
-                    }){
-                        Image(systemName:play)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width:50, height:50)
-                            .colorMultiply(.black)
                     }
-                    .position(x:UIScreen.main.bounds.width-50, y:50)
-                
-//                    Button(action:{
-//                        rotateDegree=360
-//                    }){
-//                        Image("animation3")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(height:50)
-//                            .rotationEffect(.degrees(rotateDegree))
-//                            .animation(
-//                                Animation.linear(duration:5)
-//                                    .repeatForever(autoreverses: false)
-//                            )
-//                    }
-                    
+                    .background(Color(red:192/255, green:192/255, blue:192/255, opacity:0.5))
+                    .offset(x:0, y:-UIScreen.main.bounds.height/2+100)
                     VStack{
                         VStack{
                             if show2{
@@ -230,25 +221,31 @@ struct ContentView: View {
                     Image("bboyBackground")
                         .resizable()
                         .opacity(0.8)
-                    Button(action:{
-                        if music{
-                            music=false
-                            play="pause.fill"
-                            player.play()
+                    HStack{
+                        Text("Bboy music")
+                            .padding(.leading, 10)
+                        Spacer()
+                        Button(action:{
+                            if music{
+                                music=false
+                                play="pause.fill"
+                                player.play()
+                            }
+                            else{
+                                music=true
+                                play="play.circle.fill"
+                                player.pause()
+                            }
+                        }){
+                            Image(systemName:play)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:50, height:50)
+                                .colorMultiply(.black)
                         }
-                        else{
-                            music=true
-                            play="play.circle.fill"
-                            player.pause()
-                        }
-                    }){
-                        Image(systemName:play)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width:50, height:50)
-                            .colorMultiply(.black)
                     }
-                    .position(x:UIScreen.main.bounds.width-50, y:50)
+                    .background(Color(red:192/255, green:192/255, blue:192/255, opacity:0.5))
+                    .offset(x:0, y:-UIScreen.main.bounds.height/2+100)
                     VStack{
                         Text("霹靂舞")
                             .modifier(TitleView())
@@ -261,8 +258,35 @@ struct ContentView: View {
                     Image("bboyBackground")
                         .resizable()
                         .opacity(0.8)
+                    
                     let breakingElements:[String]=["TopRock", "FootWalk", "Power-move", "Freeze", "Flip"]
+                
                     VStack{
+//                        HStack{
+//                            Text("Bboy music")
+//                                .padding(.leading, 10)
+//                            Spacer()
+//                            Button(action:{
+//                                if music{
+//                                    music=false
+//                                    play="pause.fill"
+//                                    player.play()
+//                                }
+//                                else{
+//                                    music=true
+//                                    play="play.circle.fill"
+//                                    player.pause()
+//                                }
+//                            }){
+//                                Image(systemName:play)
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width:50, height:50)
+//                                    .colorMultiply(.black)
+//                            }
+//                        }
+//                        .background(Color(red:192/255, green:192/255, blue:192/255, opacity:0.5))
+//                        .offset(x:0, y:-UIScreen.main.bounds.height/2+200)
                         Text("breaking五大元素")
                             .modifier(TitleView())
                         ScrollView{
@@ -360,63 +384,6 @@ struct ContentView: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 Spacer()
-                ScrollView(.horizontal){
-                    HStack{
-                        Group{
-                            ImageView(str:"bboy2", size:50)
-                                .saturation(5)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .saturation(0.3)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .blur(radius: 10)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .brightness(0.5)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .colorInvert()
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .colorMultiply(Color.green)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .colorMultiply(Color.red)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .contrast(3)
-                                .modifier(starMask())
-                            ImageView(str:"bboy2", size:50)
-                                .grayscale(0.9)
-                                .modifier(starMask())
-                        }
-                        ImageView(str:"bboy2", size:50)
-                            .hueRotation(Angle(degrees: 90))
-                            .modifier(starMask())
-                        ImageView(str:"bboy2", size:50)
-                            .hueRotation(Angle(degrees: 180))
-                            .modifier(starMask())
-                        ZStack{
-                            ImageView(str:"bboy2", size:50)
-                            ImageView(str:"fire", size:50)
-                                .blendMode(.darken)
-                        }
-                        .modifier(starMask())
-                        ZStack{
-                            ImageView(str:"bboy2", size:50)
-                            ImageView(str:"fire", size:50)
-                                .blendMode(.colorBurn)
-                        }
-                        .modifier(starMask())
-                        ZStack{
-                            ImageView(str:"bboy2", size:50)
-                            ImageView(str:"fire", size:50)
-                                .blendMode(.colorDodge)
-                        }
-                        .modifier(starMask())
-                    }
-                }
             }
             .background(LinearGradient(gradient:Gradient(colors:[Color.gray, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .tabItem{
@@ -429,6 +396,57 @@ struct ContentView: View {
                 utterance.rate = 0.3
                 let synthesizer = AVSpeechSynthesizer()
                 synthesizer.speak(utterance)
+            }
+            VStack{
+                HStack{
+                    ZStack{
+                        Image("movie")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:UIScreen.main.bounds.width/2-10)
+                            .clipped()
+                            .colorInvert()
+                            .rotationEffect(.degrees(20))
+                            .shadow(color: .black, radius: 10, x: 3, y: 3)
+                        Image("movie")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:UIScreen.main.bounds.width/2-10)
+                            .clipped()
+                            .contrast(3)
+                            .shadow(color: .black, radius: 10, x: 3, y: 3)
+                    }
+                    .padding(.leading, 10)
+                    Divider()
+                    Context(context:"《舞力全開系列》電影系列是舞蹈愛情類電影，其第一部舞出真我是由安妮·弗萊徹和米克·戈德堡執導並於2006年上映，第二部舞力全開和第三部舞力全開3D均由朱浩偉執導，朱浩偉也參與了舞力全開4 3D的相關製作。")
+                }
+                Divider()
+                HStack{
+                    Context(context:"雖然該系類獲得毀譽參半的評價但是商業化十分成功，電影全球賣座並獲得了5.64億美元多的票房。第六部電影採用全中國演員，並已於2019年騰訊視頻首播。")
+                    Divider()
+                    ZStack{
+                        Image("movie")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:UIScreen.main.bounds.width/2-10)
+                            .clipped()
+                            .brightness(0.5)
+                            .rotationEffect(.degrees(20))
+                            .shadow(color: .black, radius: 10, x: 3, y: 3)
+                        Image("movie")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:UIScreen.main.bounds.width/2-10)
+                            .clipped()
+                            .colorMultiply(Color.gray)
+                            .shadow(color: .black, radius: 10, x: 3, y: 3)
+                    }
+                    .padding(.trailing, 10)
+                }
+            }
+            .tabItem{
+                Image(systemName:"play.rectangle")
+                Text("Movie")
             }
         }
         .onAppear{
